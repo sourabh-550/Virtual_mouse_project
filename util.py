@@ -11,3 +11,5 @@ def get_distance(landmark_ist): #function to get the distance betwwn the landmar
     (x1, y1), (x2, y2) = landmark_ist[0], landmark_ist[1]  
     L = np.hypot(x2 - x1, y2 - y1) 
     return np.interp(L, [0, 1], [0, 1000]) #Uses numpy's interp function to map the distance L from its original range [0, 1] to a new range [0, 1000].
+
+
