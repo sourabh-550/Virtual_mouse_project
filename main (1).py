@@ -32,7 +32,7 @@ def move_mouse(index_finger_tip):#function for moving the mouse
     if index_finger_tip is not None:
         x = int(index_finger_tip.x * screen_width) 
         y = int(index_finger_tip.y / 2 * screen_height)
-        pyautogui.moveTo(x, y,duration=0.1) #using pyautogui to move the mouse cursor
+        pyautogui.moveTo(x, y,duration=0.001) #using pyautogui to move the mouse cursor
 
 
 
