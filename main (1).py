@@ -53,11 +53,19 @@ def is_right_click(landmark_list, thumb_index_dist):#function for right click
 
 
 def is_double_click(landmark_list, thumb_index_dist):#function for double click
-    pass
+    return (
+        util.get_angle(landmark_list[5], landmark_list[6], landmark_list[8]) < 50 and
+        util.get_angle(landmark_list[9], landmark_list[10], landmark_list[12]) < 50 and
+        thumb_index_dist > 50
+    )
 
 
 def is_screenshot(landmark_list, thumb_index_dist):#function for screenshot
-   pass
+    return (
+        util.get_angle(landmark_list[5], landmark_list[6], landmark_list[8]) < 50 and
+        util.get_angle(landmark_list[9], landmark_list[10], landmark_list[12]) < 50 and
+        thumb_index_dist < 50
+    )
 
 def detect_gesture(frame, landmark_list, processed):# this function is used to detect the gestures
     if len(landmark_list) >= 21: #it'll work only when all 21 points are detected
@@ -80,11 +88,14 @@ def detect_gesture(frame, landmark_list, processed):# this function is used to d
             cv2.putText(frame, "Right Click", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 #Double Click        
         elif is_double_click(landmark_list, thumb_index_dist):
-            pass
+            pyautogui.doubleClick()
+            cv2.putText(frame, "Double Click", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 0), 2)
 #Screenshot       
         elif is_screenshot(landmark_list,thumb_index_dist ):
-            pass
-1
+             im1 = pyautogui.screenshot()
+            label = random.randint(1, 1000)
+            im1.save(f'my_screenshot_{label}.png')
+            cv2.putText(frame, "Screenshot Taken", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 0), 2)
 
 def main():   
     draw = mp.solutions.drawing_utils
