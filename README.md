@@ -14,10 +14,6 @@ util.py
 
 A utility module used for calculating the angle and distance of the fingertip using NumPy. This helps in gesture recognition and enhances the modularity of the project.
 
-mouse.exe
-
-A standalone executable file that allows the project to run on any device without requiring pre-installed Python modules or dependencies.
-
 📦 Features
 
 Real-time hand gesture recognition.
@@ -48,11 +44,6 @@ Clone this repository or download the files.
 Install the required Python libraries as mentioned above.
 Run the main script:
 python main.py
-
-Option 2: Use mouse.exe
-Download the mouse.exe file from the repository.
-Double-click on the mouse.exe file to start the application.
-(Note: Ensure your device has a webcam enabled for gesture detection.)
 
 ⚙️ How It Works
 
